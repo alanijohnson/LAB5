@@ -18,6 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 import poker.app.MainApp;
 import pokerBase.Action;
+import pokerBase.Player;
 import pokerBase.Table;
 import pokerEnums.eAction;
 import pokerEnums.ePlayerPosition;
@@ -66,6 +67,15 @@ public class PokerTableController implements Initializable {
 	private Label lblPos3Name;
 	@FXML
 	private Label lblPos4Name;
+	
+	@FXML
+	private Label lblPosition1;
+	@FXML
+	private Label lblPosition2;
+	@FXML
+	private Label lblPosition3;
+	@FXML
+	private Label lblPosition4;
 
 	@FXML
 	private HBox hBoxDeck;
@@ -138,12 +148,15 @@ public class PokerTableController implements Initializable {
 
 	public void Handle_TableState(Table HubPokerTable) {
 
+		
 		//TODO: If this message is called, that means there
 		//		was a change to the state of the Table (player
 		//		probably ran 'sit' or 'leave'
 		//		The Table was updated, you just have to refresh the
 		//		UI controls to show the current state of the 
 		//		Table object
+		
+		
 		
 		//TODO: run the 'getHashPlayers' method, iterate 
 		//		for all players and update the player label
@@ -152,8 +165,110 @@ public class PokerTableController implements Initializable {
 		//		Example: Joe sits at Position 1
 		//		Joe should see the 'Sit' button in position 1 in the
 		//		'pressed in' state, and with 
+		
+		btnPos1SitLeave.setVisible(true);
+		btnPos2SitLeave.setVisible(true);
+		btnPos3SitLeave.setVisible(true);
+		btnPos4SitLeave.setVisible(true);
+		
+		lblPosition1.setText("");
+		lblPosition2.setText("");
+		lblPosition3.setText("");
+		lblPosition4.setText("");
+		
+		boolean bseated = false;
+		
+		for (int i=1; i<5 ; i++){
+			Player player = HubPokerTable.getPlayerByPosition(i);
+			if (player != null){
+				getLabelByPosition(player.getiPlayerPosition()).setText(player.getPlayerName());
+			
+				if (player.getPlayerID().equals(mainApp.getPlayer().getPlayerID())){
+					getButtonByPosition(player.getiPlayerPosition()).setText("Leave");
+					bseated = true;
+				}
+				else{
+					getButtonByPosition(i).setVisible(false);
+				}
+			
+		for (int j=1; j<5; j++){
+			if (getLabelByPosition(j).getText() ==  ""){
+				if (bseated == true){
+					getButtonByPost
+				}
+			}
+		}
+	
+			
+		}
+		
+//		for (Player hashplayer: HubPokerTable.getHashPlayers()){
+//			for (int i=0 ; i<3 ; i++){
+//				if (i == hashplayer.getiPlayerPosition()){
+//					getButtonByPosition(hashplayer.getiPlayerPosition()).setVisible(true);
+//					getButtonByPosition(hashplayer.getiPlayerPosition()).setText("Leave");
+//				}
+//				else{
+//					getButtonByPosition(hashplayer.getiPlayerPosition()).setVisible(false);
+//				}
+//			}
+//			
+//			getLabelByPosition(hashplayer.getiPlayerPosition()).setText(hashplayer.getPlayerName());
+//			
+			
+			
+			/*if (hashplayer.getiPlayerPosition() == mainApp.getPlayer().getiPlayerPosition()){
+				getButtonByPosition(hashplayer.getiPlayerPosition()).setVisible(true);
+				getButtonByPosition(hashplayer.getiPlayerPosition()).setText("Leave");
+			else{
+				for (int i=0; i<3; i++){
+					if (i!=hashplayer.getiPlayerPosition())
+				}
+				getButtonByPosition(hashplayer.getiPlayerPosition()).setVisible(true);
+				}
+			
+				
+			
+			}
+			getLabelByPosition(hashplayer.getiPlayerPosition()).setText(hashplayer.getPlayerName());
+			*/
+		}
 	}
 
+	private ToggleButton getButtonByPosition(int iPlayerPosition)
+	{
+		switch (iPlayerPosition)
+		{
+		case 1:
+			return btnPos1SitLeave;
+		case 2:
+			return btnPos2SitLeave;
+		case 3:
+			return btnPos3SitLeave;
+		case 4:
+			return btnPos4SitLeave;
+		default:
+			return null;
+		}
+	}
+	
+	private Label getLabelByPosition(int iPlayerPosition)
+	{
+		switch (iPlayerPosition)
+		{
+		case 1:
+			return lblPosition1;
+		case 2:
+			return lblPosition2;
+		case 3:
+			return lblPosition3;
+		case 4:
+			return lblPosition4;
+		default:
+			return null;
+		}
+	}
+	
 	@FXML
 	void btnStart_Click(ActionEvent event) {
 		// Start the Game

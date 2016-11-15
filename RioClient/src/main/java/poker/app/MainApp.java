@@ -111,7 +111,14 @@ public class MainApp extends Application {
 		
 		initRootLayout();
 
-		showPokerTable();		
+		showPokerTable();
+		
+		//TODO
+		if (!bStartHub){
+			Action act =new Action();
+			act.setAction(eAction.TableState);
+			act.setPlayer(player);
+		}
 	}
 
 	public void showClientServer() {
@@ -257,7 +264,6 @@ public class MainApp extends Application {
 					//		pokerController.
 					pokerController.Handle_TableState((Table)message);
 				}
-				pokerController.MessageFromMainApp((String)message);
 			});
 		}
 		

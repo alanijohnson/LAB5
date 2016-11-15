@@ -71,7 +71,8 @@
                         </FlowPane>
                      </children>
                   </HBox>
-                  <Label text="Position 3" />
+                  <Label id="lblPosition3" />
+                  <Label id="lblPosition1" fx:id="lblPosition1" text="Label" />
                </children>
             </GridPane>
          </children>
@@ -142,7 +143,8 @@
                               <Button id="btnPlayer1Fold" maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" prefWidth="80.0" text="Raise" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Button maxWidth="100.0" mnemonicParsing="false" prefWidth="80.0" text="Bet" GridPane.rowIndex="2" />
                               <Button id="btnPlayer2Check" maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" onAction="#btnCheck_Click" prefWidth="93.0" text="Check" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label text="Position 4" />
+                              <Label id="lblPosition4" />
+                              <Label id="lblPostion1" fx:id="lblPosition2" text="Label" />
                            </children>
                         </GridPane>
                      </children>
@@ -203,7 +205,8 @@
                               <Button id="btnPlayer1Fold" maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" prefWidth="80.0" text="Raise" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Button maxWidth="100.0" mnemonicParsing="false" prefWidth="80.0" text="Bet" GridPane.rowIndex="2" />
                               <Button id="btnPlayer4Check" maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" onAction="#btnCheck_Click" prefWidth="93.0" text="Check" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label text="Position 2" />
+                              <Label id="lblPostion2" />
+                              <Label id="lblPosition2" fx:id="lblPosition4" text="Label" />
                            </children>
                         </GridPane>
                      </children>
@@ -275,6 +278,7 @@
                         <Label id="txtPos1Name" fx:id="lblPos1Name1" />
                      </children>
                   </HBox>
+                  <Label id="lblPosition1" />
                   <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                      <children>
                         <FlowPane prefHeight="11.0" prefWidth="130.0">
@@ -289,7 +293,7 @@
                         </FlowPane>
                      </children>
                   </HBox>
-                  <Label text="Postion 1" />
+                  <Label id="lblPosition1" fx:id="lblPosition3" text="Label" />
                </children>
             </GridPane>
          </children>
